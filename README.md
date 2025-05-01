@@ -1,4 +1,9 @@
-# galls (a CS2 selfbot)
+# old repo
+i literally have not touched this in months i highly recommend taking the time to setup https://github.com/Pandaptable/nembot (it's a LOT more work but i'm actively working on it whenever I play CS, however there's also a lot of shit that needs to be disabled for it to work for anyone)
+
+
+
+## galls (a CS2 selfbot)
 
 Galls is a somewhat simple python script to generate responses to commands by sending a keystroke which executes a config file ingame.
 
