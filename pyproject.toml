@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "galls"
+name = "gofish"
 version = "0.1.0"
 description = ""
 authors = ["Pandaptable <panda@pandaptable.moe>"]
@@ -7,9 +7,9 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.11"
+python = "^3.11"
 PyAutoGUI = "^0.9.54"
-dotenv = "^0.0.5"
+python-dotenv = "^1.0.0"
 
 
 [build-system]

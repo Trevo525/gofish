@@ -1,32 +1,23 @@
-# old repo
-i literally have not touched this in months i highly recommend taking the time to setup https://github.com/Pandaptable/nembot (it's a LOT more work but i'm actively working on it whenever I play CS, however there's also a lot of shit that needs to be disabled for it to work for anyone)
+## gofish (a CS2 selfbot)
 
-
-
-## galls (a CS2 selfbot)
-
-Galls is a somewhat simple python script to generate responses to commands by sending a keystroke which executes a config file ingame.
+gofish is a somewhat simple python script to generate responses to commands by sending a keystroke which executes a config file ingame.
 
 ## Features
-- `!disconnect`
-  - Disconnects you from the game.
-- `!i <inspect link>`
-  - Will open the inspect link inside of your client.
-- `!switchhands`
-  - Will switch your viewmodel between right and left
-- `!play <sound>`
-  - Will play the given sound on your client (look [here](https://github.com/redBDGR/CS2-Sound-List) for a sound list)
-  - Note: I recommend setting the console command `snd_toolvolume` to a lower value (I use 0.2)
 - `!fish`
   - Fishing minigame!
-### Extra setup required to work.
-- `!flash`
-  - Will simulate a flashbang on your client (thanks psp <3)
-  - Required setup: https://gist.github.com/Pandaptable/e2212377704d198c69aab6e1b5d22e86
- 
-### Demo Video
 
-[Demo](https://github.com/Pandaptable/galls/assets/80334807/7a646185-6139-43b3-8f46-de1cdbc64c6c)
+## Game Setup
+1. Add this to your Steam Launch Options for CS2: `+exec autoexec.cfg -condebug -con_clearlog`
+2. Add the following to your [autoexec.cfg](https://www.prosettings.com/csgo-config-autoexec-guide/). Or you can add it like I have it in [my autoexec.cfg](https://github.com/Trevo525/cs2-autoexec).
+```
+bind "[" "say !fish"
+bind "]" "exec selfbot.cfg"
+log_flags InputService +donotecho // absolutely NEEDED due to CS2 having really fucking annoying limitations and the only way for me to send console commands is with "exec"
+log_flags Prediction +donotecho
+log_flags "CL CommandQueue" +donotecho
+
+echo "selfbot initialized"
+```
 
 ## Requirements
 
@@ -41,9 +32,9 @@ Galls is a somewhat simple python script to generate responses to commands by se
 4. Run `cd galls` inside of a terminal window.
 5. Run `poetry install` inside of a terminal window to install dependencies.
 6. Make a copy of `.env.example` and name it `.env`, edit it to contain the correct environment variables needed for the script to work.
-7. Run `python main.py` inside of the project directory.
+7. Run `poetry run python main.py` inside of the project directory.
 
 ## Authors
 
-  - [Pandaptable](https://github.com/Pandaptable)
+  - [Pandaptable](https://github.com/Pandaptable) 
   - [DeaFPS](https://twitter.com/deafps_) for letting me yoink her code and convert it to python... also making the fish database because [fishbase](http://www.fishbase.us/) is way too big.. ly loser <3
