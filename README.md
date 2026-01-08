@@ -11,7 +11,7 @@ gofish is a somewhat simple python script to generate responses to commands by s
 2. `main.py` loops that file, through the `CONSOLE_FILE` variable in the .env file, and analyzes the latest lines for commands.
 3. When a comand is matched, it can do many things. But, to run commands in the game, it edits the `EXEC_FILE`, in the .env file, with the command it wants to run.
 4. The autoexec needs to have a line like `bind "]" "exec selfbot.cfg"` with that selfbot.cfg matching the EXEC_FILE variable. This allows the file that was edited to be run from in game with the `]` key. 
-5. Lastly, the python script 'virtually' presses that key so that you don't have to do it.
+5. Lastly, the python script 'virtually' presses that key (which should be set in the .env file as the EXEC_KEY variable) so that you don't have to do it.
 
 ## Game Setup
 1. Add this to your Steam Launch Options for CS2: `+exec autoexec.cfg -condebug -con_clearlog`
