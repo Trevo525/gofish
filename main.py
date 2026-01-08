@@ -9,6 +9,7 @@ load_dotenv()
 
 CONSOLE_FILE = os.getenv('CONSOLE_FILE')
 EXEC_FILE = os.getenv('EXEC_FILE')
+EXEC_KEY = os.getenv('EXEC_KEY')
 
 def listen(logFile):
     logFile.seek(0, os.SEEK_END)
@@ -50,16 +51,28 @@ def write_command(command):
 
 def press_key():
     time.sleep(0.2)
-    pyautogui.press(']')
+    pyautogui.press(EXEC_KEY)
 
 def press_key_no_delay():
-    pyautogui.press(']')
+    pyautogui.press(EXEC_KEY)
 
 
 if __name__ == '__main__':
-    log_file = open(CONSOLE_FILE,"r", encoding="utf-8")
+    try:
+        log_file = open(CONSOLE_FILE,"r", encoding="utf-8")
+    except FileNotFoundError:
+        print(f"Error: Could not find file '{CONSOLE_FILE}'")
+        print("gofish gone")
+        exit(1)
+    except PermissionError:
+        print(f"Error: Permission denied accessing '{CONSOLE_FILE}'")
+        print("gofish gone")
+        exit(1)
+
     try:
         while True:
             listen(log_file)
     except KeyboardInterrupt:
         print("gofish gone")
+    finally:
+        log_file.close()
